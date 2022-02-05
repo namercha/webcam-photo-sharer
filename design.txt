@@ -1,0 +1,13 @@
+Frontend:
+A screen with 3 sections:
+    Camera - shows live image from webcam
+    Start button - once clicked, starts the webcam to start showing the live image in the camera window above
+    Capture button - Captures the frame
+
+Backend:
+A screen with 5 sections
+    Image section - shows the captured image once the captured button is clicked
+    Create link button - Creates a web link after uploading the still image
+    Link section - shows the link that was generated
+    Copy link button - allows user to copy the generated link to their clipboard once clicked
+    Open link - opens the link on a browser
