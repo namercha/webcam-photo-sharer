@@ -4,6 +4,7 @@ from kivy.lang import Builder
 from kivy.core.clipboard import Clipboard
 from filesharer import FileSharer
 import time
+import webbrowser
 
 Builder.load_file('frontend.kv')
 
@@ -40,6 +41,8 @@ class CameraScreen(Screen):
 
 class ImageScreen(Screen):
 
+    link_message = "Create a sharable link first."
+
     def create_link(self):
         """
         Takes the photo that was just captured, uploads it and creates a sharable link.
@@ -50,10 +53,22 @@ class ImageScreen(Screen):
         self.ids.link.text = self.url
 
     def copy_link(self):
+        """
+        Copies the link to the clipboard.
+        """
         try:
             Clipboard.copy(self.url)
         except:
-            self.ids.link.text = "Create a sharable link first."
+            self.ids.link.text = self.link_message
+
+    def open_link(self):
+        """
+        Opens the generated link in a browser.
+        """
+        try:
+            webbrowser.open(self.url)
+        except:
+            self.ids.link.text = self.link_message
 
 
 class RootWidget(ScreenManager):
