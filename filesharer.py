@@ -12,5 +12,5 @@ class FileSharer:
 
     def share(self):
         client = Client(self.api_key)
-        new_filelink = client.upload(filepath=self.filepath)
-        return new_filelink.url
+        new_file_link = client.upload(filepath=self.filepath)
+        return new_file_link.url
